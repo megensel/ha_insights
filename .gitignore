@@ -57,4 +57,18 @@ token.pickle
 secret_key.txt
 *_token.txt
 *_key.txt
-secrets.yaml 
+secrets.yaml
+
+# Development directories (not part of custom component)
+.cursorrules
+.devcontainer/
+ha_insights/
+examples/
+src/
+tests/
+instructions.md
+requirements.txt
+setup.py
+setup_for_github.sh
+test.py
+environment.yml 
