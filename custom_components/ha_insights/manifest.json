@@ -6,7 +6,7 @@
   "dependencies": ["recorder", "history"],
   "config_flow": true,
   "codeowners": ["@megensel"],
-  "requirements": ["pandas", "scikit-learn"],
+  "requirements": ["pandas==1.5.3", "numpy==1.24.3", "joblib==1.2.0"],
   "iot_class": "local_polling",
   "version": "0.1.0",
   "integration_type": "service"
