@@ -1,0 +1,13 @@
+{
+  "domain": "ha_insights",
+  "name": "HA Insights",
+  "documentation": "https://github.com/megensel/ha_insights",
+  "issue_tracker": "https://github.com/megensel/ha_insights/issues",
+  "dependencies": ["recorder", "history"],
+  "config_flow": true,
+  "codeowners": ["@megensel"],
+  "requirements": ["pandas", "scikit-learn"],
+  "iot_class": "local_polling",
+  "version": "0.1.0",
+  "integration_type": "service"
+} 

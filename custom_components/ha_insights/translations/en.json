@@ -1,0 +1,135 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up HA Insights",
+        "description": "HA Insights analyzes your Home Assistant environment to discover patterns and provide automation suggestions.",
+        "data": {
+          "scan_interval": "Analysis interval (minutes)",
+          "tracked_domains": "Domains to track"
+        }
+      }
+    },
+    "abort": {
+      "single_instance_allowed": "Only a single instance of HA Insights is allowed."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "HA Insights Options",
+        "description": "Configure how HA Insights analyzes your Home Assistant environment.",
+        "data": {
+          "scan_interval": "Analysis interval (minutes)",
+          "tracked_domains": "Domains to track",
+          "excluded_entities": "Entities to exclude from analysis",
+          "min_state_changes": "Minimum state changes required for pattern detection",
+          "max_suggestions": "Maximum number of suggestions to generate",
+          "purge_days": "Number of days to keep insights before purging"
+        }
+      }
+    }
+  },
+  "services": {
+    "generate_insights": {
+      "name": "Generate Insights",
+      "description": "Manually trigger the generation of insights based on current patterns."
+    },
+    "dismiss_insight": {
+      "name": "Dismiss Insight",
+      "description": "Mark an insight as dismissed so it won't appear in active insights.",
+      "fields": {
+        "insight_id": {
+          "name": "Insight ID",
+          "description": "The ID of the insight to dismiss."
+        }
+      }
+    },
+    "mark_implemented": {
+      "name": "Mark Implemented",
+      "description": "Mark an insight as implemented, indicating that you've added the suggested automation.",
+      "fields": {
+        "insight_id": {
+          "name": "Insight ID",
+          "description": "The ID of the insight to mark as implemented."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "insight": {
+        "state_attributes": {
+          "type": {
+            "name": "Type",
+            "state": {
+              "automation": "Automation",
+              "energy": "Energy",
+              "comfort": "Comfort",
+              "convenience": "Convenience",
+              "security": "Security"
+            }
+          },
+          "title": {
+            "name": "Title"
+          },
+          "description": {
+            "name": "Description"
+          },
+          "entity_id": {
+            "name": "Related Entity"
+          },
+          "related_entity_id": {
+            "name": "Trigger Entity"
+          },
+          "confidence": {
+            "name": "Confidence"
+          },
+          "timestamp": {
+            "name": "Detected At"
+          },
+          "yaml": {
+            "name": "Automation YAML"
+          },
+          "suggestions": {
+            "name": "Suggestions"
+          }
+        }
+      },
+      "insight_summary": {
+        "state_attributes": {
+          "total_insights": {
+            "name": "Total Insights"
+          },
+          "active_insights": {
+            "name": "Active Insights"
+          },
+          "dismissed_insights": {
+            "name": "Dismissed Insights"
+          },
+          "implemented_insights": {
+            "name": "Implemented Insights"
+          },
+          "automation_insights": {
+            "name": "Automation Insights"
+          },
+          "energy_insights": {
+            "name": "Energy Insights"
+          },
+          "comfort_insights": {
+            "name": "Comfort Insights"
+          },
+          "convenience_insights": {
+            "name": "Convenience Insights"
+          },
+          "security_insights": {
+            "name": "Security Insights"
+          },
+          "last_updated": {
+            "name": "Last Updated"
+          }
+        }
+      }
+    }
+  }
+} 

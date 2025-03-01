@@ -3,7 +3,7 @@
 Home Assistant integration for pattern analysis and actionable insights to improve your smart home.
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/custom-components/hacs)
-[![GitHub Release](https://img.shields.io/github/release/GITHUB_USERNAME/ha_insights.svg)](https://github.com/GITHUB_USERNAME/ha_insights/releases)
+[![GitHub Release](https://img.shields.io/github/release/megensel/ha_insights.svg)](https://github.com/megensel/ha_insights/releases)
 
 ## Overview
 
@@ -33,7 +33,7 @@ HA Insights continuously analyzes your Home Assistant environment to identify us
    - Click on "Integrations"
    - Click the three dots in the top right corner
    - Select "Custom repositories"
-   - Add the URL: `https://github.com/GITHUB_USERNAME/ha_insights`
+   - Add the URL: `https://github.com/megensel/ha_insights`
    - Category: Integration
 3. Search for "HA Insights" in HACS and install
 4. Restart Home Assistant
@@ -41,7 +41,7 @@ HA Insights continuously analyzes your Home Assistant environment to identify us
 
 ### Manual Installation
 
-1. Download the latest release from the [releases page](https://github.com/GITHUB_USERNAME/ha_insights/releases)
+1. Download the latest release from the [releases page](https://github.com/megensel/ha_insights/releases)
 2. Extract the `ha_insights` directory to your `custom_components` directory
 3. Restart Home Assistant
 4. Add the integration in Settings -> Devices & Services -> Add Integration
@@ -112,7 +112,7 @@ A: HA Insights needs to collect enough data to identify patterns. Typically, you
 A: HA Insights is designed to be lightweight and runs analysis periodically rather than continuously. It should have minimal impact on performance.
 
 **Q: Can I suggest features or report bugs?**
-A: Yes! Please use the [GitHub issue tracker](https://github.com/GITHUB_USERNAME/ha_insights/issues) for feature requests and bug reports.
+A: Yes! Please use the [GitHub issue tracker](https://github.com/megensel/ha_insights/issues) for feature requests and bug reports.
 
 ## Contributing
 
