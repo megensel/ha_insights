@@ -1,0 +1,27 @@
+generate_insights:
+  name: Generate Insights
+  description: Manually trigger the generation of insights based on current patterns.
+
+dismiss_insight:
+  name: Dismiss Insight
+  description: Mark an insight as dismissed so it won't appear in active insights.
+  fields:
+    insight_id:
+      name: Insight ID
+      description: The ID of the insight to dismiss.
+      required: true
+      example: "insight_abc123"
+      selector:
+        text:
+
+mark_implemented:
+  name: Mark Implemented
+  description: Mark an insight as implemented, indicating that you've added the suggested automation.
+  fields:
+    insight_id:
+      name: Insight ID
+      description: The ID of the insight to mark as implemented.
+      required: true
+      example: "insight_abc123"
+      selector:
+        text: 

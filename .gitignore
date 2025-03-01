@@ -1,0 +1,60 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Environment files
+.env
+.venv
+env/
+venv/
+ENV/
+.env.*
+!.env.example
+
+# Logs and databases
+*.log
+*.sqlite
+*.db
+
+# Home Assistant
+home-assistant.log
+OZW_Log.txt
+home-assistant_v2.db*
+*.db-shm
+*.db-wal
+*.db-journal
+zigbee.db
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Custom files
+credentials.json
+token.pickle
+secret_key.txt
+*_token.txt
+*_key.txt
+secrets.yaml 

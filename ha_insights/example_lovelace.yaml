@@ -1,0 +1,258 @@
+######################################################################
+# HA Insights Example Lovelace Cards
+######################################################################
+
+# Summary Card
+type: entities
+title: HA Insights Summary
+icon: mdi:lightbulb-group
+entities:
+  - entity: sensor.insights_summary
+  - type: section
+    label: "Stats"
+  - type: attribute
+    entity: sensor.insights_summary
+    attribute: total_insights
+    name: Total Insights
+  - type: attribute
+    entity: sensor.insights_summary
+    attribute: active_insights
+    name: Active Insights
+  - type: attribute
+    entity: sensor.insights_summary
+    attribute: dismissed_insights
+    name: Dismissed Insights
+  - type: attribute
+    entity: sensor.insights_summary
+    attribute: implemented_insights
+    name: Implemented Insights
+  - type: section
+    label: "By Type"
+  - type: attribute
+    entity: sensor.insights_summary
+    attribute: automation_insights
+    name: Automation Insights
+    icon: mdi:robot
+  - type: attribute
+    entity: sensor.insights_summary
+    attribute: energy_insights
+    name: Energy Insights
+    icon: mdi:lightning-bolt
+  - type: attribute
+    entity: sensor.insights_summary
+    attribute: comfort_insights
+    name: Comfort Insights
+    icon: mdi:thermometer
+  - type: attribute
+    entity: sensor.insights_summary
+    attribute: convenience_insights
+    name: Convenience Insights
+    icon: mdi:gesture-tap-button
+  - type: attribute
+    entity: sensor.insights_summary
+    attribute: security_insights
+    name: Security Insights
+    icon: mdi:shield-home
+
+######################################################################
+# Automation Suggestions Card
+# Note: requires "auto-entities" custom card from HACS
+######################################################################
+
+type: custom:auto-entities
+card:
+  type: entities
+  title: Automation Suggestions
+  icon: mdi:robot
+  show_header_toggle: false
+filter:
+  include:
+    - entity_id: sensor.insight_*
+      attributes:
+        type: automation
+  exclude:
+    - attributes:
+        dismissed: true
+card_param: entities
+sort:
+  method: state
+  reverse: true
+
+######################################################################
+# Energy Insights Card
+######################################################################
+
+type: custom:auto-entities
+card:
+  type: entities
+  title: Energy Insights
+  icon: mdi:lightning-bolt
+  show_header_toggle: false
+filter:
+  include:
+    - entity_id: sensor.insight_*
+      attributes:
+        type: energy
+  exclude:
+    - attributes:
+        dismissed: true
+card_param: entities
+sort:
+  method: state
+  reverse: true
+
+######################################################################
+# Comfort Insights Card
+######################################################################
+
+type: custom:auto-entities
+card:
+  type: entities
+  title: Comfort Insights
+  icon: mdi:thermometer
+  show_header_toggle: false
+filter:
+  include:
+    - entity_id: sensor.insight_*
+      attributes:
+        type: comfort
+  exclude:
+    - attributes:
+        dismissed: true
+card_param: entities
+sort:
+  method: state
+  reverse: true
+
+######################################################################
+# Detail Card for a Specific Insight
+######################################################################
+
+type: entities
+title: Insight Details
+entities:
+  # Replace with a specific insight sensor ID
+  - entity: sensor.insight_0
+  - type: attribute
+    entity: sensor.insight_0
+    attribute: title
+    name: Title
+  - type: attribute
+    entity: sensor.insight_0
+    attribute: description
+    name: Description
+  - type: attribute
+    entity: sensor.insight_0
+    attribute: type
+    name: Type
+  - type: attribute
+    entity: sensor.insight_0
+    attribute: confidence
+    name: Confidence
+  - type: attribute
+    entity: sensor.insight_0
+    attribute: entities
+    name: Affected Entities
+  - type: section
+    label: "Suggestions"
+  - type: attribute
+    entity: sensor.insight_0
+    attribute: suggestions
+    name: Suggestions
+    
+######################################################################
+# Automation YAML Viewer
+# Note: requires "card-mod" and "markdown-mod" from HACS
+######################################################################
+
+type: markdown
+content: |
+  ## Automation YAML
+  
+  ```yaml
+  {{ state_attr('sensor.insight_0', 'yaml') }}
+  ```
+style: |
+  ha-card {
+    padding: 16px;
+    overflow: auto;
+  }
+  pre {
+    white-space: pre-wrap;
+    background-color: #f0f0f0;
+    padding: 8px;
+    border-radius: 4px;
+  }
+
+######################################################################
+# Dashboard with Tabs for Different Types of Insights
+######################################################################
+
+type: vertical-stack
+cards:
+  - type: markdown
+    content: |
+      # HA Insights Dashboard
+      Get actionable insights for your smart home
+  - type: horizontal-stack
+    cards:
+      - type: button
+        tap_action:
+          action: call-service
+          service: ha_insights.generate_insights
+        icon: mdi:refresh
+        name: Generate Insights
+      - type: button
+        icon: mdi:cog
+        name: Configure
+        tap_action:
+          action: navigate
+          navigation_path: /config/integrations/integration/ha_insights
+  - type: custom:tabbed-card
+    tabs:
+      - name: Summary
+        icon: mdi:chart-box
+        card:
+          type: entities
+          title: HA Insights Summary
+          entities:
+            - entity: sensor.insights_summary
+      - name: Automation
+        icon: mdi:robot
+        card:
+          type: custom:auto-entities
+          card:
+            type: entities
+            title: Automation Suggestions
+            show_header_toggle: false
+          filter:
+            include:
+              - entity_id: sensor.insight_*
+                attributes:
+                  type: automation
+      - name: Energy
+        icon: mdi:lightning-bolt
+        card:
+          type: custom:auto-entities
+          card:
+            type: entities
+            title: Energy Insights
+            show_header_toggle: false
+          filter:
+            include:
+              - entity_id: sensor.insight_*
+                attributes:
+                  type: energy
+      - name: Comfort
+        icon: mdi:thermometer
+        card:
+          type: custom:auto-entities
+          card:
+            type: entities
+            title: Comfort Insights
+            show_header_toggle: false
+          filter:
+            include:
+              - entity_id: sensor.insight_*
+                attributes:
+                  type: comfort 

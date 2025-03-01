@@ -1,0 +1,8 @@
+{
+  "name": "HA Insights",
+  "content_in_root": false,
+  "render_readme": true,
+  "domains": ["ha_insights"],
+  "homeassistant": "2023.12.0",
+  "persistent_directory": "userfiles"
+} 
